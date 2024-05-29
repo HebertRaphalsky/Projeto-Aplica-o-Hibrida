@@ -9,7 +9,7 @@
 		<version>3.2.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.unisales.projetos</groupId>
+	<groupId>br.unisales.project</groupId>
 	<artifactId>demomongosec</artifactId>
 	<version>1</version>
 	<name>demomongosec</name>
@@ -33,7 +33,6 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

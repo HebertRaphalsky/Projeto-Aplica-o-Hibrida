@@ -3,9 +3,9 @@ class AuthService {
  auths = [{
   path: '/', roles: ['ROLE_ADMIN', 'ROLE_USER']
  }, {
-  path: '/sobre', roles: ['ROLE_ADMIN']
+  path: '/sobre', roles: ['ROLE_USER']
  }, {
-  path: '/projetos', roles: ['ROLE_PROJETOS']
+  path: '/project', roles: ['ROLE_PROJETOS']
  }, {
   path: '/usuarios', roles: ['ROLE_ADMIN']
  }]

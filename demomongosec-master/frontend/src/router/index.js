@@ -1,9 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ProjetosView from '../views/ProjetosView.vue'
+import TarefasView from '../views/ProjetosView.vue'
 import LoginView from '../views/LoginView.vue'
 import NaoAutorizadoView from '../views/NaoAutorizadoView.vue'
-import UsuariosView from '../views/UsuariosView.vue'
+import UsuariosView from '../views/usuarios/UsuariosView.vue'
+import UsuarioEditView from '../views/usuarios/UsuarioEditView.vue'
 
 import LoginService from '../services/LoginService'
 import AuthService from '@/services/AuthService'
@@ -15,14 +16,19 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/tarefas',
-    name: 'tarefas',
+    path: '/projetos',
+    name: 'projetos',
     component: ProjetosView
   },
   {
     path: '/usuarios',
     name: 'usuarios',
     component: UsuariosView
+  },
+  {
+    path: '/usuarios/:id',
+    name: 'usuariosedit',
+    component: UsuarioEditView
   },
   {
     path: '/login',

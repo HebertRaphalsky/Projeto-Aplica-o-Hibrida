@@ -1,23 +1,44 @@
 <template>
  <nav>
   <router-link to="/">Início</router-link> |
-  <router-link to="/projetos">Projetos</router-link> |
+  <router-link to="/project">Tarefas</router-link> |
   <router-link to="/usuarios">Usuários</router-link> |
   <router-link to="/sobre">Sobre</router-link>
  </nav>
- {{ logado }}
+ {{ logado.login }} | <button @click="desloga">Sair</button>
+ <hr />
 </template>
 
 <script>
+import LoginService from "@/services/LoginService";
 import AuthService from "@/services/AuthService";
 export default {
+ methods: {
+  desloga() {
+   LoginService.deslogar();
+   this.$router.push(`/?d=${new Date()}`);
+  },
+ },
  computed: {
   logado() {
-   return AuthService.dados.login;
+   return AuthService.dados;
   },
  },
 };
 </script>
 
-<style>
+<style scoped>
+nav {
+ text-align: center;
+ padding: 30px;
+}
+
+nav a {
+ font-weight: bold;
+ color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+ color: #2b7ac4;
+}
 </style>
