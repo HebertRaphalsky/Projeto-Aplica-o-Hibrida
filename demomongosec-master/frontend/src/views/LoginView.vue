@@ -9,8 +9,6 @@
  </div>
 </template>
 
-</template>
-
 <script>
 import LoginService from "@/services/LoginService";
 
