@@ -5,7 +5,7 @@ class AuthService {
  }, {
   path: '/sobre', roles: ['ROLE_USER']
  }, {
-  path: '/project', roles: ['ROLE_PROJETOS']
+  path: '/projetos', roles: ['ROLE_PROJETOS']
  }, {
   path: '/usuarios', roles: ['ROLE_ADMIN']
  }]

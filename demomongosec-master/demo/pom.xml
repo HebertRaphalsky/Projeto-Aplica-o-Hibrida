@@ -9,7 +9,7 @@
 		<version>3.2.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.unisales.project</groupId>
+	<groupId>br.unisales.projetos</groupId>
 	<artifactId>demomongosec</artifactId>
 	<version>1</version>
 	<name>demomongosec</name>

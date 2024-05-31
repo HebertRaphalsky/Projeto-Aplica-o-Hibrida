@@ -1,7 +1,9 @@
 <template>
-  <barra-navegacao></barra-navegacao>
   <div>
-    <h1>Projetos</h1>
+    <barra-navegacao></barra-navegacao>
+    <div>
+      <h1>Projetos</h1>
+    </div>
   </div>
 </template>
 

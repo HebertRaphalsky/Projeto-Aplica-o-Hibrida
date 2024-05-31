@@ -3,46 +3,46 @@
 </template>
 
 <style>
-#app {
- font-family: Avenir, Helvetica, Arial, sans-serif;
- -webkit-font-smoothing: antialiased;
- -moz-osx-font-smoothing: grayscale;
- text-align: justify;
- color: #2c3e50;
- padding: 55px;
+.navbar {
+  border-radius: 10px;
 }
 
-[v-cloak] {
- display: block;
- padding: 50px 0;
+.navbar-brand {
+  width: 110px; /* Largura da logo */
+  height: 40px; /* Altura automática para manter a proporção */
+  margin-right: 50px; /* Espaçamento para esquerda */
+  margin-left: 20px; /* Espaçamento para direita */
 }
 
-@keyframes spinner {
- to {
-  transform: rotate(360deg);
- }
+/* Estilos para o menu suspenso */
+.dropdown-menu {
+  background-color: #0031f6 !important;
+  box-shadow: 0px 8px 16px rgba(1, 1, 1, 1) !important;
+  text-wrap: green;
+  
 }
 
-[v-cloak]:before {
- content: "";
- box-sizing: border-box;
- position: absolute;
- top: 50%;
- left: 50%;
- width: 20px;
- height: 20px;
- margin-top: -10px;
- margin-left: -10px;
- border-radius: 50%;
- border: 2px solid #ccc;
- border-top-color: #333;
- animation: spinner 0.6s linear infinite;
- text-indent: 100%;
- white-space: nowrap;
- overflow: hidden;
+.dropdown-item {
+  color: #dee8da !important; /* Cor do texto dos itens do menu suspenso */
 }
 
-[v-cloak] > * {
- display: none;
+.dropdown-item:hover {
+  background-color: #0101015f !important;
+  color: rgb(197, 178, 7) !important;
+}
+
+body {
+  background: rgb(14,0,255);
+  background: linear-gradient(90deg, rgba(0,164,255,1) 0%, rgba(14,0,255,1) 50%, rgba(0,164,255,1) 100%);
+  height: 100%;
+  width: 100%;
+  
+}
+
+/* Estilos responsivos */
+@media (max-width: 20%) {
+  .nav-pills {
+    flex-direction: column;
+  }
 }
 </style>
