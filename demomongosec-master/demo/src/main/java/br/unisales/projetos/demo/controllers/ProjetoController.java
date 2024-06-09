@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.unisales.projetos.demo.annotations.ValidaAcesso;
 import br.unisales.projetos.demo.models.domain.Projeto;
+import br.unisales.projetos.demo.models.security.User;
 import br.unisales.projetos.demo.repositories.ProjetoRepository;
 
 @CrossOrigin
@@ -43,6 +44,16 @@ public class ProjetoController extends DefaultController{
   List<Projeto> lt = projetoRepository.findAll();
   return new ResponseEntity<>(lt, HttpStatus.OK);
  }
+
+ @GetMapping("/{id}")
+    public ResponseEntity<?> getProjetoById(@PathVariable("id") String id) {
+        Optional<Projeto> projeto = projetoRepository.findById(id);
+        if (projeto.isPresent()) {
+            return new ResponseEntity<>(projeto.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
  @SuppressWarnings({ "rawtypes", "unchecked" })
 @PutMapping("/{id}")
