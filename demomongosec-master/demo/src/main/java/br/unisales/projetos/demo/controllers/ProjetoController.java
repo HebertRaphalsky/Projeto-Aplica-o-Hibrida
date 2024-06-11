@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.unisales.projetos.demo.annotations.ValidaAcesso;
 import br.unisales.projetos.demo.models.domain.Projeto;
-import br.unisales.projetos.demo.models.security.User;
 import br.unisales.projetos.demo.repositories.ProjetoRepository;
 
 @CrossOrigin
@@ -29,7 +28,8 @@ public class ProjetoController extends DefaultController{
  @Autowired
  private ProjetoRepository projetoRepository;
 
- @PostMapping
+ @SuppressWarnings("null")
+@PostMapping
  @ValidaAcesso({ "ROLE_USER" })
  public ResponseEntity<?> insere(@RequestBody Projeto tarefa) {
   if (tarefa != null) {

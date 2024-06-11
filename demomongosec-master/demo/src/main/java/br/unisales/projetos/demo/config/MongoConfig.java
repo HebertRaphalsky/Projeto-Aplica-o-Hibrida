@@ -17,6 +17,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
   return true;
  }
 
+ @SuppressWarnings("null")
  @Override
  protected String getDatabaseName() {
   return "demosbsec";

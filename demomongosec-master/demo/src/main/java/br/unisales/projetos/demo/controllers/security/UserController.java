@@ -52,7 +52,7 @@ public class UserController extends DefaultController {
   return repository.findAllByTipoOrderByLogin(tipousuario);
  }
 
- @SuppressWarnings({ "rawtypes", "unchecked" })
+ @SuppressWarnings({ "rawtypes", "unchecked", "null" })
 @GetMapping("/{id}")
  public ResponseEntity<?> getMethodName(@PathVariable(value = "id", required = true) String id) {
   User user = userService.repository().findById(id).get();
@@ -62,7 +62,7 @@ public class UserController extends DefaultController {
    return new ResponseEntity(null, HttpStatus.NOT_FOUND);
  }
 
- @SuppressWarnings({ "unchecked", "rawtypes" })
+ @SuppressWarnings({ "unchecked", "rawtypes", "null" })
 @PostMapping("")
  public ResponseEntity<?> salva(@RequestBody User user) {
   user.setSenha(passwordEncoder.encode(user.getSenha()));
@@ -93,6 +93,9 @@ if (!user.getPermissoes().contains("ROLE_USER")) {
    User _user = ouser.get();
    _user.setPermissoes(user.getPermissoes());
    userService.repository().save(_user);
+   _user.setNome(user.getNome());
+   _user.setSobrenome(user.getSobrenome());
+   _user.setPeriodo(user.getPeriodo());
    return new ResponseEntity(_user, HttpStatus.OK);
   } else {
    return new ResponseEntity("Usuário não existe com o id " + id, HttpStatus.NOT_FOUND);

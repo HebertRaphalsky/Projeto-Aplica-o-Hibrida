@@ -24,7 +24,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author romulo.douro
+ * @author Hebert
  *
  */
 public class LoginInterceptor implements HandlerInterceptor {

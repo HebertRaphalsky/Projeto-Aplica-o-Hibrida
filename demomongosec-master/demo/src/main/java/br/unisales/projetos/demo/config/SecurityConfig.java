@@ -86,6 +86,19 @@ public class SecurityConfig implements CommandLineRunner, WebMvcConfigurer {
     }
     catch (Exception ex) {
     }
+    try {
+      u = new User();
+      u.setLogin("use");
+      u.setSenha(passwordEncoder().encode("1234"));
+      u.getPermissoes().add("ROLE_USER");
+      u.getPermissoes().add("ROLE_PROJETOS");
+      u.getPermissoes().add("ROLE_ADMIN");
+      //userRepository.save(u);
+      userService.insert(u);
+    }
+    catch (Exception ex) {
+    }
+
 
   }
 
@@ -101,7 +114,7 @@ public class SecurityConfig implements CommandLineRunner, WebMvcConfigurer {
   }
 
   @Override
-  public void addInterceptors(InterceptorRegistry registry) {
+  public void addInterceptors(@SuppressWarnings("null") InterceptorRegistry registry) {
     registry.addInterceptor(new LoginInterceptor(userService, jwtUtil))
         .excludePathPatterns("/error**", "/index**", "/doc**", "/auth**", "/swagger-ui**", "/v3/api-docs**")
         .addPathPatterns("/projetos**", "/users**");

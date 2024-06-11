@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author romulo
+ * @author Hebert
  */
 @Component
 @PropertySource("classpath:jwt.properties")

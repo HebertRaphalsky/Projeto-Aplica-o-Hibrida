@@ -30,9 +30,9 @@ public class DocConfig {
     .info(new Info()
       .title("Aplicação usando mongo")
       .version("1.0.0")
-      .contact(new Contact().email("rfdouro@gmail.com").name("Rômulo Douro"))
+      .contact(new Contact().email("hebertraphalsky@hotmail.com").name("Hebert Raphalsky"))
       .description("<h1>Exemplo de REST API para projetos</h1><p>Código disponível no "
-        + "<a href='#!' target='_blank'>Github</a></p>"
+        + "<a href='https://github.com/HebertRaphalsky/Projeto-Aplicacao-Hibrida' target='_blank'>Github</a></p>"
         + "<p>Teste o login usando os seguintes <b>login - senha</b>:</p>"
         + "<p><ul><li>admin - 1234</li><li>usuario1 - 1234</li><li>usuario2 - 1234</li></ul></p>"));
  }
