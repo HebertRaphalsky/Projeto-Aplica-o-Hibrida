@@ -5,7 +5,7 @@ import LoginView from '../views/LoginView.vue'
 import NaoAutorizadoView from '../views/NaoAutorizadoView.vue'
 import UsuariosView from '../views/usuarios/UsuariosView.vue'
 import UsuarioEditView from '../views/usuarios/UsuarioEditView.vue'
-
+import ProjetosEditView from '../views/ProjetoEditView.vue'
 import LoginService from '../services/LoginService'
 import AuthService from '@/services/AuthService'
 
@@ -19,6 +19,11 @@ const routes = [
     path: '/projetos',
     name: 'projetos',
     component: ProjetosView
+  },
+  {
+    path: '/projetos/:id',
+    name: 'projetosedit',
+    component: ProjetosEditView
   },
   {
     path: '/usuarios',

@@ -2,73 +2,114 @@
   <barra-navegacao></barra-navegacao>
 
   <div class="cadastro">
-    <div class="row g-0 justify-content-center"> <!-- Centraliza o conteúdo horizontalmente -->
+    <div class="row g-0 justify-content-center">
+      <!-- Centraliza o conteúdo horizontalmente -->
       <!-- Coluna responsiva -->
-      <div class="col-lg-9 col-md-6 col-sm-8"> <!-- Ajusta o tamanho da coluna em diferentes dispositivos -->
+      <div class="col-lg-9 col-md-6 col-sm-8">
+        <!-- Ajusta o tamanho da coluna em diferentes dispositivos -->
         <!-- Card de login -->
         <div v-if="!registerActive" class="card login" v-bind:class="{ error: emptyFields }">
-
-          <h1>Usuários:</h1>
-
+          <h1>Cadastro de Usuários:</h1>
           <fieldset>
-            <legend>Cadastro:</legend>
-            <form class="">
-              <fieldset>
-                <!--<p><label>Login</label><input type="text" v-model="user.login" /></p>-->
-                <div class="row gx-3 gy-2 align-items-center p-2">
-                  <div class="col-sm-4 form-group">
-                    <input v-model="user.login" type="login" class="form-control" placeholder="Login" required>
-                  </div>
-                  <div class="col-sm-4">
-                    <input v-model="user.senha" type="senha" class="form-control" placeholder="Senha" required>
-                  </div>
+            <!--<legend>Cadastro:</legend>-->
+
+            <fieldset>
+              <!--<p><label>Login</label><input type="text" v-model="user.login" /></p>-->
+              <div class="row gx-3 gy-2 align-items-center p-2">
+                <div class="col-sm-4">
+                  <input
+                    v-model="user.login"
+                    type="login"
+                    class="form-control"
+                    placeholder="Login"
+                    required
+                  />
                 </div>
-                <div class="row gx-3 gy-2 align-items-center p-2">
-                  <div class="col-sm-4">
-                    <input v-model="user.nome" type="text" class="form-control" placeholder="Nome" required>
-                  </div>
-                  <div class="col-sm-4">
-                    <input v-model="user.sobrenome" type="text" class="form-control" placeholder="Sobrenome" required>
-                  </div>
+                <div class="col-sm-4">
+                  <input
+                    v-model="user.senha"
+                    type="senha"
+                    class="form-control"
+                    placeholder="Senha"
+                    required
+                  />
                 </div>
-                <div class="row gx-3 gy-2 align-items-center p-2">
-                  <div class="col-sm-4">
-                    <input v-model="user.periodo" type="text" class="form-control" placeholder="Período" required>
-                    
-                  </div>
-                  <div class="col-sm-8 menu-drop">
-                    <select name="listaPermissoes" id="permissoes" class="form-select"
-                      aria-label="">
-                      <option selected>Permissões:</option>
-                      <option value="ROLE_USER">Usuário</option>
-                      <option value="ROLE_PROJETOS">Projetos</option>
-                      <option value="ROLE_ADMIN">Administrador</option>
-                    </select>
-                  </div>
-                </div>
-              </fieldset>
-              <!--<p><label>Senha</label><input type="password" v-model="user.senha" /></p>-->
-              <div class="row gx-3 gy-2 col-sm-2 align-items-center p-4">
-              <button class="btn btn-primary" @click="salvar">Salvar</button>
               </div>
-            </form>
+              <div class="row gx-3 gy-2 align-items-center p-2">
+                <div class="col-sm-4">
+                  <input
+                    v-model="user.nome"
+                    type="text"
+                    class="form-control"
+                    placeholder="Nome"
+                    required
+                  />
+                </div>
+                <div class="col-sm-4">
+                  <input
+                    v-model="user.sobrenome"
+                    type="text"
+                    class="form-control"
+                    placeholder="Sobrenome"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row gx-3 gy-2 align-items-center p-2">
+                <div class="col-sm-4">
+                  <input
+                    v-model="user.periodo" min="1" max="10"
+                    type="number"
+                    class="form-control"
+                    placeholder="Período"
+                    required
+                  />
+                </div>
+                <div class="col-sm-8 menu-drop">
+                  <select
+                    name="listaPermissoes"
+                    id="permissoes"
+                    class="form-select"
+                    aria-label=""
+                    v-model="user.permissoes"
+                  >
+                    <option value="-1" selected>Permissões:</option>
+                    <option value="ROLE_PROJETOS">Projetos</option>
+                    <option value="ROLE_ADMIN">Administrador</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+            <!--<p><label>Senha</label><input type="password" v-model="user.senha" /></p>-->
+            <div class="row gx-3 gy-2 col-sm-2 p-4 align-items-center">
+              <button class="btn btn-primary" @click="salvar">Salvar</button>
+            </div>
           </fieldset>
 
           <table class="table table-dark table-striped">
             <thead>
               <tr>
-                <th>Login:</th>
-                <th>Nome:</th>
-                <th>Sobrenome:</th>
-                <th>Período:</th>
+                <th class="col-40">Login:</th>
+                <th class="col-40">Nome:</th>
+                <th class="col-40">Sobrenome:</th>
+                <th class="col-40">Período:</th>
+                <th class="col-20">Atualizar dados:</th>
               </tr>
             </thead>
             <tbody class="table-group-divider">
-              <tr v-for="(u, i) in usuarios" v-bind:key="i" @click="abreEdit(u.id)">
+              <tr v-for="(u, i) in usuarios" v-bind:key="i">
                 <td>{{ u.login }}</td>
                 <td>{{ u.nome }}</td>
                 <td>{{ u.sobrenome }}</td>
-                <td>{{ u.periodo }}</td>
+                <td align="center">{{ u.periodo }}</td>
+                <td align="center">
+                  <button class="btn btn-primary atualizar me-2" @click="abreEdit(u.id)">
+                    Editar
+                  </button>
+                  <button class="btn btn-danger" @click="excluir(u.id)">
+                    Excluir
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -114,41 +155,60 @@ export default {
       }
     },
     async salvar() {
-      this.user.permissoes = ["ROLE_USER"];
-      console.log(JSON.stringify(this.user));
-      if (this.user.login != null && this.user.senha != null) {
-        fetch("http://localhost:8080/users", {
-          method: "POST",
-          body: JSON.stringify(this.user),
-          headers: {
-            Authorization: `Bearer ${AuthService.dados.token}`,
-            "Content-Type": "application/json",
-          },
-        })
-          .then((r) => {
-            if (r.status != 200 || r.status != 201) {
-              r.json().then((j) => {
-                console.log("ERRO", j);
-              });
-            }
-            this.getUsuarios();
+      if (this.user.permissoes == "-1") {
+        alert("selecione uma permissao");
+      } else {
+        this.user.permissoes = [this.user.permissoes];
+        console.log(JSON.stringify(this.user));
+
+        if (this.user.login != null && this.user.senha != null) {
+          fetch("http://localhost:8080/users", {
+            method: "POST",
+            body: JSON.stringify(this.user),
+            headers: {
+              Authorization: `Bearer ${AuthService.dados.token}`,
+              "Content-Type": "application/json",
+            },
           })
-          .catch((e) => {
-            console.log("ERRO", e);
-          });
+            .then((r) => {
+              if (r.status != 200 || r.status != 201) {
+                r.json().then((j) => {
+                  console.log("ERRO", j);
+                });
+              }
+              this.getUsuarios();
+            })
+            .catch((e) => {
+              console.log("ERRO", e);
+            });
+        }
       }
     },
     abreEdit(id) {
       this.$router.push(`/usuarios/${id}`);
     },
+    async excluir(id) {
+      try {
+        const response = await fetch(`http://localhost:8080/users/${id}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${AuthService.dados.token}`,
+          },
+        });
+
+        if (response.ok) {
+          this.getUsuarios(); // Atualiza a lista de usuários após excluir
+        } else {
+          const errorData = await response.json();
+          console.error("Erro ao excluir usuário:", errorData);
+        }
+      } catch (error) {
+        console.error("Erro ao excluir usuário:", error);
+      }
+    },
   },
 };
 </script>
-
-.form-label {
-margin-bottom: 5px;
-color: white;
-}
 
 <style scoped>
 .card {
@@ -174,12 +234,9 @@ color: white;
   /* Ajuste o tamanho da fonte conforme necessário */
   margin-left: 10px;
   /* Ajuste a margem à esquerda conforme necessário */
-
-
 }
 
 .form-group {
-
   /* Estilos para inputs dentro do form-group */
   input {
     margin-bottom: 20px !important;
@@ -194,7 +251,6 @@ color: white;
   /* Centraliza verticalmente os itens */
   display: flexbox;
   /* Define um layout flexível */
-
 }
 
 button {
@@ -204,7 +260,10 @@ button {
 
 button:hover {
   color: black;
-  background-color: rgb(40, 232, 6);
+}
+
+.atualizar:hover {
+  color: black;
 }
 
 .menu-drop select {
@@ -225,6 +284,17 @@ table * {
 }
 
 table tbody tr {
-  cursor: pointer;
+}
+
+.col-40 {
+  width: 20%;
+}
+
+.col-20 {
+  width: 25%;
+}
+
+.me-2 {
+  margin-right: 0.5rem;
 }
 </style>

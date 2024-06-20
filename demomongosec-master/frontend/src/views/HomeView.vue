@@ -2,20 +2,20 @@
     <div class="home">
         <barra-navegacao></barra-navegacao>
 
-        <div class="row g-0 justify-content-center">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <div v-if="!registerActive" class="card login" v-bind:class="{ error: emptyFields }">
-                <fieldset>
-                    <form class="col-sm-6 form-group p-2">
-                        <h2>Início:</h2>
-                        <p class="fs-5">Seja bem vindo!</p>
-                        <div class="log-user">{{ logado.login }}</div>
-                    </form>
-                </fieldset>
+        <div class="d-flex align-items-center justify-content-center min-vh-70">
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div v-if="!registerActive" class="card login" :class="{ error: emptyFields }">
+                    <fieldset>
+                        <form>
+                            <div class="col-sm-12 form-group p-2 text-center">
+                                <p class="fs-5 fw-bold" style="font-size: 30px;">Seja bem-vindo!</p>
+                                <div class="log-user">{{ logado.login }}</div>
+                            </div>
+                        </form>
+                    </fieldset>
+                </div>
             </div>
         </div>
-    </div>
-
     </div>
 </template>
 
@@ -31,6 +31,12 @@ export default {
     components: {
         BarraNavegacao
     },
+    data() {
+        return {
+            registerActive: false,
+            emptyFields: false
+        };
+    },
     methods: {
         desloga() {
             LoginService.deslogar();
@@ -42,24 +48,43 @@ export default {
             return AuthService.dados;
         },
     },
-  
 };
-
 </script>
 
 <style scoped>
+.home {
+    position: relative;
+}
 
 .card {
-  padding: 10px;
-  /* Define o espaçamento interno */
+    padding: 10px;
+    /* Define o espaçamento interno */
+    max-width: 100%; /* Para que a caixa não fique maior que a tela */
+    margin: auto; /* Centraliza a caixa horizontalmente */
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.min-vh-100 {
+    min-height: 100vh;
 }
 
 .log-user {
     font-weight: bold; 
     font-family: Helvetica;
     text-transform: uppercase;
-    font-size: 25px;
-    color: blue;
+    font-size: 25px;    
+    color: black;
+    text-justify: center;
 }
-
 </style>

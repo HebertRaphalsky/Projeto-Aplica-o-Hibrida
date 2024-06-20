@@ -7,8 +7,8 @@
                 <div v-if="!registerActive" class="card login" v-bind:class="{ error: emptyFields }">
                     <fieldset>
                         <form class="form-group">
-                            <h1>Sobre:</h1>
-                            <p class="fs-4">(Descrição)</p>
+                            <h1>Projeto Integrador</h1>
+                            <p class="fs-4">Onda 01 - Cadastro de Projeto e Usuário</p>
                             <p class="fs-4">Alunos:</p>
                             <table class="table table-dark table-striped">
                                 <thead>
@@ -42,7 +42,7 @@ export default {
     data() {
         return {
             usuarios: [
-                { nome: 'Alexander', participacao: 'Integração de sistema' },
+                { nome: 'Alexander', participacao: 'FrontEnd, Integração de sistema' },
                 { nome: 'Carlos', participacao: 'FrontEnd' },
                 { nome: 'Hebert', participacao: 'BackEnd' },
             ],
