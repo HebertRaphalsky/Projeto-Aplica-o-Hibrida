@@ -5,11 +5,10 @@
         <img src="@/assets/logo.png" alt="Logo" class="navbar-brand" />
       </a>
 
-      <!-- Botão mobile perguntar a romulo animação de botão-->
+      <!-- Botão mobile -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <router-link to="/" class="nav-link">Início</router-link>
@@ -24,8 +23,8 @@
             <router-link to="/sobre" class="nav-link">Sobre</router-link>
           </li>
         </ul>
-
       </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
@@ -41,6 +40,7 @@
             <router-link to="/sobre" class="nav-link">Sobre</router-link>
           </li>
         </ul>
+
         <div class="deslogar">
           <div class="log-user">{{ logado.login }}</div> | <button class="bot-deslogar" @click="desloga">Sair</button>
         </div>
@@ -70,7 +70,7 @@ export default {
 
 <style scoped>
 button {
-  margin: 0 10px; /* Ajuste a margem conforme necessário */
+  margin: 0 10px;
   box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, 0.745) !important;
 }
 
@@ -87,7 +87,7 @@ button {
 }
 
 .nav-item {
-  margin-right: 10px; /* Espaçamento entre os itens do menu */
+  margin-right: 10px;
 }
 
 .deslogar {
@@ -117,12 +117,12 @@ button {
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .navbar-brand {
-    margin-right: 20px; /* Ajuste do espaçamento da logo em telas pequenas */
-    margin-left: 10px; /* Ajuste do espaçamento da logo em telas pequenas */
+    margin-right: 20px;
+    margin-left: 10px;
   }
 
   .navbar-nav {
-    flex-direction: column; /* Menu em coluna em telas pequenas */
+    flex-direction: column;
   }
 }
 </style>

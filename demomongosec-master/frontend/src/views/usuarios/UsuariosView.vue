@@ -19,7 +19,6 @@
                 <div class="col-sm-4">
                   <input
                     v-model="user.login"
-                    type="login"
                     class="form-control"
                     placeholder="Login"
                     required
@@ -81,12 +80,12 @@
               </div>
             </fieldset>
             <!--<p><label>Senha</label><input type="password" v-model="user.senha" /></p>-->
-            <div class="row gx-3 gy-2 col-sm-2 p-4 align-items-center">
+            <div class="row gx-3 gy-2 col-sm-3 p-4 align-items-center">
               <button class="btn btn-primary" @click="salvar">Salvar</button>
             </div>
           </fieldset>
 
-          <table class="table table-dark table-striped">
+          <table class="table table-blue table-striped ">
             <thead>
               <tr>
                 <th class="col-40">Login:</th>
@@ -280,11 +279,9 @@ button:hover {
 }
 
 table * {
-  border: solid 1px black;
+  border: solid 1px rgba(0, 0, 0, 0.175);
 }
 
-table tbody tr {
-}
 
 .col-40 {
   width: 20%;

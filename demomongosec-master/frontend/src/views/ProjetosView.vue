@@ -2,10 +2,8 @@
   <barra-navegacao></barra-navegacao>
 
   <div class="cadastro">
-    <div class="row g-0 justify-content-center"> <!-- Centraliza o conteúdo horizontalmente -->
-      <!-- Coluna responsiva -->
-      <div class="col-lg-9 col-md-6 col-sm-8"> <!-- Ajusta o tamanho da coluna em diferentes dispositivos -->
-        <!-- Card de login -->
+    <div class="row g-0 justify-content-center">
+      <div class="col-lg-9 col-md-6 col-sm-8">
         <div v-if="!registerActive" class="card login" v-bind:class="{ error: emptyFields }">
 
           <h1>Cadastro de Projetos:</h1>
@@ -26,7 +24,7 @@
             </form>
           </fieldset>
 
-          <table class="table table-dark table-striped">
+          <table class="table table-light table-striped custom-table">
             <thead>
               <tr>
                 <th style="width: 40%;">Projeto:</th>
@@ -38,7 +36,7 @@
               <tr v-for="(u, i) in projetos" v-bind:key="i">
                 <td @click="abreEdit(u.id)">{{ u.descricao }}</td>
                 <td @click="abreEdit(u.id)">{{ u.professorRepresentante }}</td>
-                <td>
+                <td class="text-center">
                   <button class="btn btn-primary btn-sm" @click="editarProjeto(u.id)">Editar</button>
                   <button class="btn btn-danger btn-sm" @click="excluirProjeto(u.id)">Excluir</button>
                 </td>
@@ -66,6 +64,7 @@ export default {
         descricao: null,
         professorRepresentante: null,
       },
+      emptyFields: false,
     };
   },
   mounted() {
@@ -87,6 +86,13 @@ export default {
       }
     },
     async salvar() {
+      // Verifica se os campos estão vazios
+      if (!this.projeto.descricao || !this.projeto.professorRepresentante) {
+        this.emptyFields = true;
+        return;
+      }
+      this.emptyFields = false;
+
       console.log(JSON.stringify(this.projeto));
 
       fetch("http://localhost:8080/projetos", {
@@ -104,6 +110,8 @@ export default {
             });
           }
           this.getProjetos();
+          this.projeto.descricao = "";
+          this.projeto.professorRepresentante = "";
         })
         .catch((e) => {
           console.log("ERRO", e);
@@ -173,5 +181,26 @@ table tbody tr {
 .table button {
   width: 75px;
   margin: 2px;
+}
+
+.custom-table {
+  background-color: #ffffff;
+}
+
+.custom-table thead th {
+  background-color: #ffffff;
+  color: rgb(1, 1, 1);
+}
+
+.custom-table tbody tr:nth-child(odd) {
+  background-color: white;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #e6f7ff;
+}
+
+.text-center {
+  text-align: center;
 }
 </style>
