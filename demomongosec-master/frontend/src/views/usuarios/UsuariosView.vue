@@ -8,7 +8,11 @@
       <div class="col-lg-9 col-md-6 col-sm-8">
         <!-- Ajusta o tamanho da coluna em diferentes dispositivos -->
         <!-- Card de login -->
-        <div v-if="!registerActive" class="card login" v-bind:class="{ error: emptyFields }">
+        <div
+          v-if="!registerActive"
+          class="card login"
+          v-bind:class="{ error: emptyFields }"
+        >
           <h1>Cadastro de Usuários:</h1>
           <fieldset>
             <!--<legend>Cadastro:</legend>-->
@@ -57,7 +61,9 @@
               <div class="row gx-3 gy-2 align-items-center p-2">
                 <div class="col-sm-4">
                   <input
-                    v-model="user.periodo" min="1" max="10"
+                    v-model="user.periodo"
+                    min="1"
+                    max="10"
                     type="number"
                     class="form-control"
                     placeholder="Período"
@@ -85,33 +91,38 @@
             </div>
           </fieldset>
 
-          <table class="table table-blue table-striped ">
-            <thead>
-              <tr>
-                <th class="col-40">Login:</th>
-                <th class="col-40">Nome:</th>
-                <th class="col-40">Sobrenome:</th>
-                <th class="col-40">Período:</th>
-                <th class="col-20">Atualizar dados:</th>
-              </tr>
-            </thead>
-            <tbody class="table-group-divider">
-              <tr v-for="(u, i) in usuarios" v-bind:key="i">
-                <td>{{ u.login }}</td>
-                <td>{{ u.nome }}</td>
-                <td>{{ u.sobrenome }}</td>
-                <td align="center">{{ u.periodo }}</td>
-                <td align="center">
-                  <button class="btn btn-primary atualizar me-2" @click="abreEdit(u.id)">
-                    Editar
-                  </button>
-                  <button class="btn btn-danger" @click="excluir(u.id)">
-                    Excluir
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table table-blue table-striped">
+              <thead>
+                <tr>
+                  <th class="col-40">Login:</th>
+                  <th class="col-40">Nome:</th>
+                  <th class="col-40">Sobrenome:</th>
+                  <th class="col-40">Período:</th>
+                  <th class="col-20">Atualizar dados:</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <tr v-for="(u, i) in usuarios" v-bind:key="i">
+                  <td>{{ u.login }}</td>
+                  <td>{{ u.nome }}</td>
+                  <td>{{ u.sobrenome }}</td>
+                  <td align="center">{{ u.periodo }}</td>
+                  <td align="center">
+                    <button
+                      class="btn btn-primary atualizar me-2"
+                      @click="abreEdit(u.id)"
+                    >
+                      Editar
+                    </button>
+                    <button class="btn btn-danger" @click="excluir(u.id)">
+                      Excluir
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -281,7 +292,6 @@ button:hover {
 table * {
   border: solid 1px rgba(0, 0, 0, 0.175);
 }
-
 
 .col-40 {
   width: 20%;

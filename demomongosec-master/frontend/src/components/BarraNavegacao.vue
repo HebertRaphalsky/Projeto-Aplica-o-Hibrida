@@ -1,48 +1,48 @@
 <template>
   <div class="container-fluid mb-3 p-3 bg">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a href="/">
-        <img src="@/assets/logo.png" alt="Logo" class="navbar-brand" />
-      </a>
+      <div class="container-fluid">
+        <a href="/" class="navbar-brand">
+          <img src="@/assets/logo.png" alt="Logo" />
+        </a>
 
-      <!-- Botão mobile -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <router-link to="/" class="nav-link">Início</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/projetos" class="nav-link">Projetos</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/usuarios" class="nav-link">Usuários</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/sobre" class="nav-link">Sobre</router-link>
-          </li>
-        </ul>
-      </button>
+        <!-- Botão mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <router-link to="/" class="nav-link">Início</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/projetos" class="nav-link">Projetos</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/usuarios" class="nav-link">Usuários</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/sobre" class="nav-link">Sobre</router-link>
-          </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <router-link to="/" class="nav-link">Início</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/projetos" class="nav-link"
+                >Projetos</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link to="/usuarios" class="nav-link"
+                >Usuários</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link to="/sobre" class="nav-link">Sobre</router-link>
+            </li>
+          </ul>
 
-        <div class="deslogar">
-          <div class="log-user">{{ logado.login }}</div> | <button class="bot-deslogar" @click="desloga">Sair</button>
+          <div class="deslogar">
+            <div class="log-user">{{ logado.login }}</div>
+            | <button class="bot-deslogar" @click="desloga">Sair</button>
+          </div>
         </div>
       </div>
     </nav>
@@ -79,11 +79,11 @@ button {
   font-size: 18px;
 }
 
-.navbar-brand {
-  width: 130px;
-  height: 40px;
+.navbar-brand img{
+  width: 110px;
+  height: 30px;
   margin-right: 50px;
-  margin-left: 20px;
+  margin-left: 5px;
 }
 
 .nav-item {
